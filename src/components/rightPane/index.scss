@@ -1,0 +1,21 @@
+.comp-wrapper {
+  background-color: #2d2d2d;
+  flex-basis: 20%;
+  padding: 24px;
+  .header {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 27px;
+    color: #ffffff;
+  }
+  .comp-item {
+    background: #ffffff;
+    border-radius: 4px;
+    margin: 10px auto;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 22px;
+    padding: 12px;
+    cursor: grab;
+  }
+}
