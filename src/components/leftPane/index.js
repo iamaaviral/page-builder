@@ -1,20 +1,21 @@
 import React from 'react'
+import { ContextHOC } from '../../context';
 import Form from '../form';
 import './index.scss'
 
 const Canvas = (props) => {
     return(
         <>
-        <div className="canvas-wrapper" 
+        <div className="canvas-wrapper"  id="canvas"
         onDragOver={(event) => {
             event.stopPropagation();
             event.preventDefault();
         }}
         onDrop= {(event) => {
-            console.log(event.clientX, event.clientY)
+            props.setForm(event.clientX, event.clientY)
             props.toggleForm()
-        }}>Left Pane</div>
-        {props.shwowForm ? <Form />: null }
+        }}></div>
+        {props.showForm ? ContextHOC(Form): null }
         </>
     )
 }

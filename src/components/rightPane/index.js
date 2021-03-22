@@ -1,13 +1,13 @@
 import React from 'react'
 import './index.scss'
 
-const Component = () => {
+const Component = (props) => {
     return(
         <div className="comp-wrapper">
             <div className="header">BLOCKS</div>
-            <div className="comp-item" draggable="true" onDragStart={(e) => console.log(e)}>Label</div>
-            <div className="comp-item" draggable="true">Input</div>
-            <div className="comp-item" draggable="true">Button</div>
+            <div className="comp-item" draggable="true" id="p" onDragStart={(e) => props.setType(e.target.id)}>Label</div>
+            <div className="comp-item" draggable="true" id="input" onDragStart={(e) => props.setType(e.target.id)}>Input</div>
+            <div className="comp-item" draggable="true" id="button" onDragStart={(e) => props.setType(e.target.id)}>Button</div>
         </div>
     )
 }

@@ -7,6 +7,7 @@ class PageContext extends React.Component {
         super(props)
         this.state = {
             showForm: false,
+            type: '',
            formInput: {
                text: '',
                x: 0,
@@ -20,6 +21,14 @@ class PageContext extends React.Component {
                     showForm: !state.showForm
                 };
               })
+           },
+           setForm: (x,y, type) => {
+               this.setState({
+                   formInput: {...this.state.formInput, x:x, y:y}
+               })
+           },
+           setType: (type) => {
+               this.setState({type})
            }
         }
     }
