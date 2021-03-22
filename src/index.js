@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {PageContext, Context} from './context'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <PageContext>
+        <Context.Consumer>{val => <App {...val} />}</Context.Consumer>
+    </PageContext>
   </React.StrictMode>,
   document.getElementById('root')
 );

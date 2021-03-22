@@ -1,12 +1,13 @@
 import './App.css';
-import Canvas from './components/leftPane'
+import LeftPane from './components/leftPane'
 import Components from './components/rightPane'
+import { ContextHOC } from './context';
 
-function App() {
+function App(props) {
   return (
     <div className="App">
-      <Canvas />
-      <Components />
+      {ContextHOC(LeftPane)}
+      {ContextHOC(Components)}
     </div>
   );
 }
