@@ -2,4 +2,8 @@
     background-color: #E5E5E5;
     flex-basis: 80%;
     position: relative;
+    .each-list{ cursor: pointer}
+    .selected{
+        border: 1px solid red;
+    }
 }

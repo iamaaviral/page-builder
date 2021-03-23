@@ -5,14 +5,7 @@ import "./index.scss";
 
 const Form = (props) => {
     const save = () => {
-        var para = document.createElement(props.type);
-        var t = document.createTextNode("This is a paragraph.");
-        para.appendChild(t);
-        para.style.position = 'absolute'
-        para.style.left = `${props.formInput.x}px`
-        para.style.top = `${props.formInput.y}px`
-        var elem = document.getElementById('canvas');
-        elem.appendChild(para)
+        props.setItemList()
         props.toggleForm()
     }
 
@@ -20,26 +13,26 @@ const Form = (props) => {
   return ReactDOM.createPortal(
     <div className="form-wrapper">
       <div className="form-container">
-        <div className="header">Edit Label <span className="close" onClick={() => props.toggleForm()}>x</span></div>
+        <div className="header">{`Edit  ${props.formInput.type}`}<span className="close" onClick={() => props.toggleForm()}>x</span></div>
         <div className="field">
           <div className="title">Text</div>
-          <input />
+          <input onChange={(e) => props.setText(e.target.value)} value={props.formInput.text}/>
         </div>
         <div className="field">
           <div className="title">X</div>
-          <input value={props.formInput.x}/>
+          <input onChange={(e) => props.setx(e.target.value)} value={props.formInput.x}/>
         </div>
         <div className="field">
           <div className="title">Y</div>
-          <input value={props.formInput.y}/>
+          <input onChange={(e) => props.sety(e.target.value)} value={props.formInput.y}/>
         </div>
         <div className="field">
           <div className="title">Font Size</div>
-          <input />
+          <input onChange={(e) => props.setSize(e.target.value)} value={props.formInput.size}/>
         </div>
         <div className="field">
           <div className="title">Font Weight</div>
-          <input />
+          <input onChange={(e) => props.setWeight(e.target.value)} value={props.formInput.weight}/>
         </div>
         <div className="field">
             <div className="btn" onClick={() => save()}>Save changes</div>
