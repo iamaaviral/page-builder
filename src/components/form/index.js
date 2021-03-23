@@ -7,7 +7,6 @@ const Form = (props) => {
     const save = () => {
         props.setItemList()
         props.toggleForm()
-        window.localStorage.setItem('listItem', JSON.stringify(props.itemList));
     }
 
   const formRoot = document.getElementById("form-root");

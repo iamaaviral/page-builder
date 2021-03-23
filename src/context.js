@@ -26,7 +26,7 @@ class PageContext extends React.Component {
                 this.setState({
                     itemList: newArray,
                     edit: false
-                })
+                },() => window.localStorage.setItem('listItem', JSON.stringify(this.state.itemList)))
                } else {
                    this.setState({
                            itemList: [...this.state.itemList, {
@@ -38,7 +38,7 @@ class PageContext extends React.Component {
                              weight: this.state.formInput.weight,
                            }],
                            edit: false
-                   })
+                   }, () => window.localStorage.setItem('listItem', JSON.stringify(this.state.itemList)))
                }
                this.state.setSelectedIndex(null)
            },
@@ -51,6 +51,7 @@ class PageContext extends React.Component {
                 edit: false
             })
             this.state.setSelectedIndex(null)
+            window.localStorage.setItem('listItem', JSON.stringify(this.state.itemList));
            },
            delItemList: (i) => {
                let newArray = this.state.itemList;

@@ -6,7 +6,6 @@ import './index.scss'
 const Canvas = (props) => {
 
     const handleKeyPress = (e,i) => {
-        e.preventDefault();
         if(e.keyCode === 46) {
             props.delItemList(i)
             props.setEdit(false)
@@ -28,10 +27,7 @@ const Canvas = (props) => {
                 props.setForm(event.clientX, event.clientY)
                 props.toggleForm()
             } else {
-                props.onDrop(event.clientX, event.clientY)
-                // props.setForm(event.clientX, event.clientY)
-                // console.log(props.formInput)
-                // props.setItemList()
+                props.onDrop(event.clientX , event.clientY)
             }
         }}>
             {props.itemList.map((list, index) => {
