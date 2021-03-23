@@ -7,13 +7,14 @@ const Form = (props) => {
     const save = () => {
         props.setItemList()
         props.toggleForm()
+        window.localStorage.setItem('listItem', JSON.stringify(props.itemList));
     }
 
   const formRoot = document.getElementById("form-root");
   return ReactDOM.createPortal(
     <div className="form-wrapper">
       <div className="form-container">
-        <div className="header">{`Edit  ${props.formInput.type}`}<span className="close" onClick={() => props.toggleForm()}>x</span></div>
+        <div className="header">{`Edit  ${props.formInput.type}`}<span className="close" onClick={() => {props.toggleForm();props.setSelectedIndex(null)}}>x</span></div>
         <div className="field">
           <div className="title">Text</div>
           <input onChange={(e) => props.setText(e.target.value)} value={props.formInput.text}/>

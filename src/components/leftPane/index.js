@@ -9,6 +9,7 @@ const Canvas = (props) => {
         e.preventDefault();
         if(e.keyCode === 46) {
             props.delItemList(i)
+            props.setEdit(false)
         }
         if(e.key === 'Enter') {
             props.editForm()
@@ -23,25 +24,24 @@ const Canvas = (props) => {
             event.preventDefault();
         }}
         onDrop= {(event) => {
-            props.setForm(event.clientX, event.clientY)
-            props.toggleForm()
+            if(!props.edit) {
+                props.setForm(event.clientX, event.clientY)
+                props.toggleForm()
+            } else {
+                props.onDrop(event.clientX, event.clientY)
+                // props.setForm(event.clientX, event.clientY)
+                // console.log(props.formInput)
+                // props.setItemList()
+            }
         }}>
             {props.itemList.map((list, index) => {
-            // var para = document.createElement(list.type);
-            // var t = document.createTextNode(list.text);
-            // para.appendChild(t);
-            // para.style.position = 'absolute'
-            // para.style.left = `${list.x}px`
-            // para.style.top = `${list.y}px`
-            // para.style.fontSize = `${list.size}px`
-            // para.style.fontWeight = list.weight
-            // console.log(para)
             return <list.type
                         className={`each-list ${props.selectedIndex === index ? 'selected' : ''}`}
-                        onClick={() => props.setSelectedIndex(index)}
+                        onClick={() => {props.setEdit(true); props.setSelectedIndex(index)}}
                         onKeyDown={(e) => {handleKeyPress(e,index)}}
                         tabIndex={props.type === "p" ? 0 : 1}
                         draggable={true}
+                        onDragStart={() => {props.setEdit(true); props.setSelectedIndex(index)}}
                         id={index}
                         key={index}
                         style={{
