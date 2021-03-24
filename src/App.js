@@ -1,8 +1,8 @@
-import React from 'react';
-import './App.css';
-import LeftPane from './components/leftPane'
-import Components from './components/rightPane'
-import { ContextHOC } from './context';
+import React from "react";
+import "./App.css";
+import LeftPane from "./components/leftPane";
+import Components from "./components/rightPane";
+import { ContextHOC } from "./context";
 
 function App(props) {
   return (

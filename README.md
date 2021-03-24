@@ -1,6 +1,7 @@
 # page-builder
 
-This repository contains the React implementation for the Page-builder app
+This repository contains the React implementation for the Page-builder app.
+Access url: https://srivastavaaviral1.github.io/page-builder/
 
 ## Getting Started
 
